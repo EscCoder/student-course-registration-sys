@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Available Courses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>All Available Courses</h2>
+        
+        {% if courses %}
+            <ul>
+                {% for course in courses %}
+                    <li>
+                        <strong>{{ course.title }}</strong> ({{ course.id }})<br>
+                        <p>{{ course.description }}</p> <!-- Displaying course description -->
+                        <form method="POST" action="{{ url_for('enroll') }}" style="display:inline;">
+                            <input type="hidden" name="course_id" value="{{ course.id }}">
+                            <button type="submit">Enroll</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No courses available at the moment.</p>
+        {% endif %}
+
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </div>
+</body>
+</html>
