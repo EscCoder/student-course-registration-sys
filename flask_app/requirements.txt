@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+pymysql
+python-jose
+python-dotenv
+pydantic
+PyJWT
+email-validator
+Flask==2.3.2
+Flask-Cors==4.0.0
+requests==2.31.0
+python-multipart
+
+##pip install -r requirements.txt

@@ -1,0 +1,21 @@
+# Use the base Python image
+FROM python:3.9-slim AS first-stage
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy only the necessary project files (the Flask app and requirements.txt)
+COPY frontend/ /app/frontend/
+COPY backend/ /app/backend/
+COPY run_app.py /app/
+COPY requirements.txt /app/
+
+# Install dependencies from requirements.txt
+RUN pip install -r /app/requirements.txt
+
+# Expose the required ports (Flask on 8000 and FastAPI on 5000)
+EXPOSE 5000
+EXPOSE 8000
+
+# Run the startup script
+CMD ["python", "run_app.py"]
