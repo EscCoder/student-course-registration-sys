@@ -2,9 +2,9 @@ import pymysql
 
 # Database connection settings - update these for your environment
 DB_CONFIG = {
-    "host": "localhost",
-    "user": "root",
-    "password": "secret",
+    "host": "35.200.243.177",
+    "user": "pallavi",
+    "password": "password",
     "port": 3306,
     "database": "registration_system"
 }
@@ -45,3 +45,30 @@ with pymysql.connect(**DB_CONFIG) as conn:
 
         conn.commit()
         print("Database and tables for 'registration_system' created successfully!")
+
+# import pymysql
+
+# # Database connection settings
+# DB_CONFIG = {
+#     "host": "35.200.243.177",
+#     "user": "pallavi",
+#     "password": "password",
+#     "port": 3306,
+#     "database": "registration_system"
+# }
+
+# # Courses to insert
+# courses = [
+#     ("OOPs", "Learn object-oriented programming basics"),
+#     ("Networks", "Introduction to computer networking"),
+#     ("Database System", "Core principles of database design"),
+#     ("Comp Architecture", "Study of computer internal structure")
+# ]
+
+# # Connect and insert courses
+# with pymysql.connect(**DB_CONFIG) as conn:
+#     with conn.cursor() as cursor:
+#         for title, desc in courses:
+#             cursor.execute("INSERT INTO courses (title, description) VALUES (%s, %s)", (title, desc))
+#         conn.commit()
+#         print("Courses inserted successfully!")
